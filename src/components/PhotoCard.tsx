@@ -11,10 +11,10 @@ const PhotoCard: React.FC<PhotoCardProps> = ({ photo, onViewDetails }) => {
     <div className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center">
       <img
         src={photo.thumbnailUrl}
-        alt={photo.title}
+        // alt={photo.title}
         className="w-32 h-32 object-cover rounded-md"
       />
-      <h3 className="text-sm mt-2 font-poppins  flex-grow  text-black px-3 py-2 rounded-lg shadow-md">
+      <h3 className="text-sm mt-2 font-poppins  flex-grow  text-black px-3 py-2 rounded-lg">
         {photo.title}
       </h3>
       <button
