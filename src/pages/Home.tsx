@@ -24,7 +24,8 @@ const Home: React.FC = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold text-center mb-6">Photo Gallery</h1>
+      <h1 className="text-4xl font-bold text-center mb-6 bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text drop-shadow-lg animate-fade-in">
+        Photo Gallery</h1>
       <PhotoList photos={photos} onViewDetails={handleViewDetails} />
     </div>
   );
