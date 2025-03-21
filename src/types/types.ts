@@ -18,3 +18,14 @@ export interface PhotoState {
   loading: boolean;
   error: string | null;
 }
+export interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (pageNumber: number) => void;
+}
+export interface SearchInputProps {
+  placeholder: string;
+  value: string;
+  onChange: (value: string) => void;
+}
+

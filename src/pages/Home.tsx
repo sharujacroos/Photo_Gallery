@@ -4,7 +4,7 @@ import { AppDispatch, RootState } from "../redux/store";
 import { fetchPhotos } from "../redux/photoSlice";
 import { useNavigate } from "react-router-dom";
 import PhotoList from "../components/PhotoList";
-import Pagination from "../components/Pagination";
+import Pagination from "../components/Pagination"; 
 import SearchInput from "../components/SearchInput"; 
 
 const Home: React.FC = () => {
@@ -27,6 +27,8 @@ const Home: React.FC = () => {
     photo.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  console.log("Filtered Photos:", filteredPhotos); 
+
   const indexOfLastPhoto = currentPage * photosPerPage;
   const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
   const currentPhotos = filteredPhotos.slice(indexOfFirstPhoto, indexOfLastPhoto);
@@ -41,14 +43,12 @@ const Home: React.FC = () => {
       <h1 className="text-4xl font-bold text-center mb-6 bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text drop-shadow-lg animate-fade-in">
         Photo Gallery
       </h1>
-      
       <SearchInput
         placeholder="Search photos by title..."
         value={searchQuery}
         onChange={setSearchQuery}
       />
       <PhotoList photos={currentPhotos} onViewDetails={handleViewDetails} />
-
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
