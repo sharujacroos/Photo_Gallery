@@ -9,6 +9,10 @@ const PhotoDetails: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  const fallbackImage =
+    "https://cdn-icons-png.flaticon.com/256/11542/11542598.png";
+
+
   useEffect(() => {
     const fetchPhotoDetails = async () => {
       try {
@@ -35,9 +39,10 @@ const PhotoDetails: React.FC = () => {
         {photo && (
           <>
             <img
-              src={photo.url}
+              src={photo.url || fallbackImage}
             //   alt={photo.title}
               className="w-full h-60 object-cover rounded-lg shadow-sm"
+              onError={(e) => (e.currentTarget.src = fallbackImage)}
             />
             <h2 className="text-xl font-bold mt-4 text-center text-gray-800">{photo.title}</h2>
             
