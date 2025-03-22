@@ -7,11 +7,16 @@ interface PhotoCardProps {
 }
 
 const PhotoCard: React.FC<PhotoCardProps> = ({ photo, onViewDetails }) => {
+  const fallbackImage =
+    "https://cdn-icons-png.flaticon.com/256/11542/11542598.png";
+
   return (
     <div className="bg-gradient-to-r from-blue-40 to-purple-50 rounded-lg shadow-md p-4 flex flex-col items-center">
       <img
-        src={photo.thumbnailUrl}
+        src={photo.thumbnailUrl || fallbackImage}
         className="w-32 h-32 object-cover rounded-md"
+        onError={(e) => (e.currentTarget.src = fallbackImage)}
+
       />
       <h3 className="text-sm mt-2 font-poppins  flex-grow  text-black px-3 py-2 rounded-lg">
         {photo.title}
