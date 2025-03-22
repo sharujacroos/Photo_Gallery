@@ -9,7 +9,7 @@ const initialState: PhotoState = {
 
 export const fetchPhotos = createAsyncThunk("photos/fetchPhotos", async () => {
   const response = await fetch(
-    "https://jsonplaceholder.typicode.com/photos?_limit=20"
+    "https://jsonplaceholder.typicode.com/photos?_limit=50"
   );
   return (await response.json()) as Photo[];
 });
